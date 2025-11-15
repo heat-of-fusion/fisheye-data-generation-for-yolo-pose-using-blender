@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b1df3d-36af-4682-92a3-dfd5bfc0af4b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_scene.blend" beforeDir="false" afterPath="$PROJECT_DIR$/demo_scene.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test0.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test0.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test0.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test0_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test0_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test1.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test1.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test1_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test1_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test2.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test2.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test2_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test2_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test3.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test3.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test3.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test3_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test3_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test4.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test4.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test4.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test4_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test4_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test5.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test5.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test5.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test5_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test5_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test6.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test6.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test6.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test6_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test6_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test7.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test7.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test7.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test7_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test7_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test8.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test8.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test8.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test8_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test8_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test9.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/out/test9.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test9.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test9_.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/test9_.png" afterDir="false" />
-    </list>
+    <list default="true" id="d3b1df3d-36af-4682-92a3-dfd5bfc0af4b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +57,7 @@
       <workItem from="1763127211713" duration="8000" />
       <workItem from="1763127448018" duration="5240000" />
       <workItem from="1763181804260" duration="2117000" />
-      <workItem from="1763198626770" duration="6653000" />
+      <workItem from="1763198626770" duration="6886000" />
     </task>
     <servers />
   </component>

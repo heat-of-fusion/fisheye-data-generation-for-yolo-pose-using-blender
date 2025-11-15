@@ -608,7 +608,7 @@ if __name__ == '__main__':
     walkers_spawner = RandomObjectSpawner(walkers_obj, walkers_config)
 
     for i in range(10):
-        camera.location.z = np.random.uniform(0.5, 3.0)
+        camera.location.z = np.random.uniform(2.5, 3.0)
         camera.rotation_euler.z = np.random.uniform(0, 360)
 
         # Spawn Objects

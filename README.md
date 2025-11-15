@@ -1,6 +1,8 @@
 
 # Blender-based Synthetic Data Generator for Fisheye Pose Estimation
 
+![Demo Image](./src/demo.png)
+
 A fully modular pipeline for generating **synthetic human pose datasets** using **Blender**, tailored for **fisheye camera** applications.  
 This system programmatically spawns, randomizes, poses, and renders 3D rigged characters and exports their **2D fisheye-projected keypoints** for training pose-estimation models (e.g., YOLO-Pose).
 

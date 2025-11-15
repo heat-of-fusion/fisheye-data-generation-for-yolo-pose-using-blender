@@ -1,5 +1,4 @@
 import bpy
-import bpy_extras
 
 import os
 import numpy as np
@@ -7,7 +6,7 @@ import pickle as pkl
 
 import random
 import math
-from math import radians, atan2, sqrt, pi
+from math import radians
 from mathutils import Vector, Euler
 
 def print(data):

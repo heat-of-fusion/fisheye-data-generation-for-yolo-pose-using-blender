@@ -118,7 +118,7 @@ A directory of `.pkl` pose files is located in ```./animations/pose/```
 
 1. Open your Blender demo scene file `demo-scene.blend`.
 2. Go to **Scripting** workspace.
-3. Load the Python generator script ```./scripts/yolo_blender_v_1_4.py```.
+3. Load the Python generator script ```./scripts/yolo_blender_v_1_0.py```.
 4. Update paths:
 
 ```python

@@ -4,6 +4,8 @@
 A fully modular pipeline for generating **synthetic human pose datasets** using **Blender**, tailored for **fisheye camera** applications.  
 This system programmatically spawns, randomizes, poses, and renders 3D rigged characters and exports their **2D fisheye-projected keypoints** for training pose-estimation models (e.g., YOLO-Pose).
 
+***The code may seem promiscuous, but I can't help it because it has to be in one file to run python code in blender.***
+
 ---
 
 ## ✨ Features
@@ -49,10 +51,9 @@ Configure:
 ## 📂 Example Output
 
 Each iteration produces:
-
+````
 test0.png      # Rendered fisheye image
 test0.pkl      # List of persons’ 2D keypoints
-
 ````
 
 **Keypoint file structure:**
@@ -73,54 +74,57 @@ If no characters spawned → list is empty.
 
 ### 1. Install Blender
 
-Requires **Blender 3.0+**
-Download: [https://www.blender.org/download/](https://www.blender.org/download/)
+I recommand using **Blender 4.5.4**.
+
+Download: <href>https://www.blender.org/download/release/Blender4.5/blender-4.5.4-windows-x64.msi/</href>
 
 ### 2. Install Python Dependencies (inside Blender Python)
 
 Locate Blender's Python:
 
 * **Windows**
-  `C:\Program Files\Blender Foundation\Blender 3.x\3.x\python\bin\python.exe`
+  `C:\Program Files\Blender Foundation\Blender 4.5\4.5\python\bin\python.exe`
 
 * **macOS**
-  `/Applications/Blender.app/Contents/Resources/3.x/python/bin/python3.x`
+  `/Applications/Blender.app/Contents/Resources/4.5/python/bin/python4.5`
 
 * **Linux**
-  `~/blender-3.x/3.x/python/bin/python3.x`
+  `~/blender-4.5/4.5/python/bin/python4.5`
 
 Install NumPy:
 
 ```bash
-"<path-to-blender-python>" -m pip install numpy
+"<PATH-TO-THE-BLENDER-PYTHON>" -m pip install numpy
 ```
 
 ---
 
-## 📦 Project Structure Requirements
+## 📦 Demo Project Structure
 
-Your `.blend` file must contain:
+If you open `demo-scene.blend` file, you would see:
 
 * `base_monkey` (static mesh)
 * `base_patient` (rigged human)
-* `base_walkers` (Empty with multiple mesh children)
+* `base_walkers` (Single Bone with multiple mesh rigged)
 * A Camera object (fisheye parameters handled in script)
 
-A directory of `.pkl` pose files is required for animation.
+A directory of `.pkl` pose files is located in ```./animations/pose/```
 
 ---
 
 ## 🚀 How to Run
 
-1. Open your Blender `.blend`.
+1. Open your Blender demo scene file `demo-scene.blend`.
 2. Go to **Scripting** workspace.
-3. Load the Python generator script.
+3. Load the Python generator script ```./scripts/yolo_blender_v_1_4.py```.
 4. Update paths:
 
 ```python
 if __name__ == "__main__":
-    out_dir = 'C:/your/output/path/'
-    pose_dir = 'C:/your/pose/folder/'
+    # Note that the directories have to be Absolute Path
+    out_dir = 'C:/<CLONED-PATH-OF-THIS-REPO>/out/'
+    pose_dir = 'C:/<CLONED-PATH-OF-THIS-REPO>/animations/pose/'
+    ...
 ```
 
 5. Press **Run Script** (▶).
@@ -151,7 +155,7 @@ if __name__ == "__main__":
 
 ### `RandomObjectSpawner`
 
-* For an Empty containing multiple meshes
+* For an Single Bone containing multiple meshes
 * Randomly selects which child mesh to display
 
 ### `StickingKeypointRiggedObjectSpawner`
@@ -162,6 +166,9 @@ if __name__ == "__main__":
 ---
 
 ## 🔧 Customization
+
+### In Advance
+If you want to use your own rigged person model, you must (re-)rig your model from Mixamo. Pose files in this projects only compatible with Mixamo naming system.
 
 ### Add New Objects
 
@@ -174,60 +181,60 @@ In Python:
 
 ```python
 obj = bpy.data.objects.get('base_myobject')
-my_config = {'rangeLocX': (-5, 5), ...}
+```
+
+### Configure the Randomization Range of Your Model
+You can customize randomization min-Max range of your model with four aspects:
+1. Location
+2. Scale
+3. Rotation
+4. Number
+```python
+my_config = {
+    # Location Range
+    'rangeLocX': (-2.5, 2.5),
+    'rangeLocY': (-3.0, 3.0),
+    'rangeLocZ': (0.0, 0.0),
+    
+    # Scale Range
+    'rangeScale': (0.7, 1.2),
+    
+    # Rotation Range
+    'rangeRotX': (0.0, 0.0),
+    'rangeRotY': (0.0, 0.0),
+    'rangeRotZ': (0.0, 360.0),
+    
+    # Number Range
+    'rangeNum': (0, 7),
+}
+```
+
+### Generate Your Spawner Instance
+Generate your spawner instance according to your obejctive.
+```python
+# Case of Non-Rigged Object:
 spawner = BaseSpawner(obj, my_config)
+
+# Case of Rigged Object:
+spawner = KeypointRiggedObjectSpawner(obj, my_config, pose_dir)
+
+# Case of Set of Objects to be Chosen
+spawner = RandomObjectSpawner(obj, my_config)
 ```
 
-### Add New Pose Files
-
-Directory format:
-
-```
-pose/
- ├── standing/
- │    ├── pose1.pkl
- │    └── pose2.pkl
- └── sitting/
-      ├── pose3.pkl
-```
-
-Pose file structure:
-
+### Spawn and Despawn your Objects
 ```python
-{
-    'mixamorig:Hips': {'w': ..., 'x': ..., 'y': ..., 'z': ...},
-    ...
-}
+# Spawning Fixed Number of Objects
+spawner.spawn_objs(NUMBER-OF-OBJECTS-TO-SPAWN)
+
+# Spawning Random Number of Objects
+spawner.spawn_objs(np.random.randint(*my_config['rangeNum']))
+
+...
+
+# [IMPORTANT] Despawn and Re-Initialize your objects
+spawner.despawn_objs()
 ```
-
-### Customize Keypoints
-
-Edit this list inside `KeypointRiggedObjectSpawner`:
-
-```python
-self.kpt_mapping = [
-    'mixamorig:HeadTop_End',
-    'mixamorig:Head',
-    'mixamorig:Neck',
-    ...
-]
-```
-
----
-
-## 📜 Citation
-
-```bibtex
-@software{fisheye_data_generator_2025,
-  author = {heat-of-fusion},
-  title = {Blender-based Synthetic Data Generator for Fisheye Pose Estimation},
-  year = {2025},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/heat-of-fusion/your-repo-name}}
-}
-```
-
 ---
 
 ## 📄 License

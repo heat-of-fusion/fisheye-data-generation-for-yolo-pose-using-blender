@@ -142,7 +142,7 @@ if __name__ == "__main__":
 
 ### `RandomObjectSpawner`
 
-* For an Single Bone containing multiple meshes
+* For a Single Bone containing multiple meshes
 * Randomly selects which child mesh to display
 
 ### `StickingKeypointRiggedObjectSpawner`

@@ -80,24 +80,7 @@ I recommand using **Blender 4.5.4**.
 
 Download: <href>https://www.blender.org/download/release/Blender4.5/blender-4.5.4-windows-x64.msi/</href>
 
-### 2. Install Python Dependencies (inside Blender Python)
-
-Locate Blender's Python:
-
-* **Windows**
-  `C:\Program Files\Blender Foundation\Blender 4.5\4.5\python\bin\python.exe`
-
-* **macOS**
-  `/Applications/Blender.app/Contents/Resources/4.5/python/bin/python4.5`
-
-* **Linux**
-  `~/blender-4.5/4.5/python/bin/python4.5`
-
-Install NumPy:
-
-```bash
-"<PATH-TO-THE-BLENDER-PYTHON>" -m pip install numpy
-```
+### 2. That's It! That's All You Have to Do for Installation
 
 ---
 
@@ -147,6 +130,7 @@ if __name__ == "__main__":
 * Extends `BaseSpawner`
 * Applies `.pkl` pose files to an armature
 * Ensures characters sit on ground plane
+* Target objects have to be rigged from Mixamo.
 
 ### `KeypointRiggedObjectSpawner`
 
@@ -154,6 +138,7 @@ if __name__ == "__main__":
 * Computes world positions of rig bones
 * Projects keypoints using fisheye equation
 * Contains editable `kpt_mapping`
+* Target objects have to be rigged from Mixamo.
 
 ### `RandomObjectSpawner`
 

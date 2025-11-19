@@ -232,10 +232,10 @@ class RiggedObjectSpawner(BaseSpawner):
             self.objs[i].rotation_euler.z = radians(random.uniform(*self.config['rangeRotZ']))
 
             pose_type = self.pose_type_list[np.random.randint(0, len(self.pose_type_list))]
-            _dir = self.pose_dir + f'{pose_type}/'
+            _dir = os.path.join(self.pose_dir, f'{pose_type}/')
 
             pose_file_list = os.listdir(_dir)
-            _dir = _dir + pose_file_list[np.random.randint(0, len(pose_file_list))]
+            _dir = os.path.join(_dir, pose_file_list[np.random.randint(0, len(pose_file_list))])
 
             pose_file = pkl.load(open(_dir, 'rb'))
 
@@ -509,10 +509,10 @@ class StickingKeypointRiggedObjectSpawner(KeypointRiggedObjectSpawner):
             self.objs[i].rotation_euler.z = radians(random.uniform(*self.config['rangeRotZ']))
 
             pose_type = self.pose_type_list[np.random.randint(0, len(self.pose_type_list))]
-            _dir = self.pose_dir + f'{pose_type}/'
+            _dir = os.path.join(self.pose_dir, f'{pose_type}/')
 
             pose_file_list = os.listdir(_dir)
-            _dir = _dir + pose_file_list[np.random.randint(0, len(pose_file_list))]
+            _dir = os.path.join(_dir,  pose_file_list[np.random.randint(0, len(pose_file_list))])
 
             pose_file = pkl.load(open(_dir, 'rb'))
 
@@ -531,9 +531,9 @@ class StickingKeypointRiggedObjectSpawner(KeypointRiggedObjectSpawner):
 
 
 if __name__ == '__main__':
-    out_dir = 'C:/Users/batma/Desktop/VIDA/data_generation/blender-base/demo/fisheye-data-generation-for-yolo-pose-using-blender/out/'
+    out_dir = f'<ABSOLUTE-PATH-WHERE-YOU-CLONED-THIS-PROJECT>/fisheye-data-generation-for-yolo-pose-using-blender/out/'
 
-    pose_dir = f'C:/Users/batma/Desktop/VIDA/data_generation/blender-base/demo/fisheye-data-generation-for-yolo-pose-using-blender/animations/pose/'
+    pose_dir = f'<ABSOLUTE-PATH-WHERE-YOU-CLONED-THIS-PROJECT>/fisheye-data-generation-for-yolo-pose-using-blender/animations/pose/'
 
     monkey_config = {
         # Location Range
@@ -617,7 +617,7 @@ if __name__ == '__main__':
 
         patient_spawner.stick_to_ground(alpha_margin = 0.)
 
-        render(out_dir + f'test{i}.png')
+        render(os.path.join(out_dir, f'test{i}.png'))
 
         patient_keypoints = patient_spawner.get_scene_keypoints(camera, 180)
 
